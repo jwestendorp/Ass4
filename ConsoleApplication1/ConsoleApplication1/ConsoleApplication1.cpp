@@ -68,7 +68,7 @@ int nr_of_days_in_month(int year, int month, bool leapyear)
 		}
 	}
 }
-
+/*
 Month easter_month(int year)
 {
 	// implement this function
@@ -98,7 +98,7 @@ void show_holy_days()
 {
 	// implement this function
 }
-
+*/
 int main()
 {
 	//INTRO
