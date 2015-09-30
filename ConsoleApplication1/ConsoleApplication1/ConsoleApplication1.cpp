@@ -126,7 +126,7 @@ int main()
 	//MENU
 	cout << "Enter 'Q' for part 1" << endl;
 	cout << "Enter 'W' for part 2.1" << endl;
-	cout << "Enter 'E' for part 2.2" << endl;
+
 
 	//string voor ingedrukte toets
 	string toets;
@@ -182,15 +182,7 @@ int main()
 		//        factorize(n);
 	}
 
-	//PART 2.2, toets E
-	if (toets == "e" || toets == "E") {
-		cout << endl;   //enter
-		cout << "Approximation of the square root x via inclusion" << endl;
-		cout << "Enter a value for x: ";
-		double v;
-		cin >> v;
-
-	}
+	
 
 
 	main();
