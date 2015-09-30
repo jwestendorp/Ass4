@@ -44,8 +44,7 @@ bool is_leap_year(int year) {
 	// implement this function
 }
 
-enum Month { January = 1, February, March, April, May, June, July, August, September, October, November, December };
-
+string Month[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 int nr_of_days_in_month(int year, int month, bool leapyear)
 {
 	// implement this function
@@ -68,6 +67,8 @@ int nr_of_days_in_month(int year, int month, bool leapyear)
 		}
 	}
 }
+
+
 /*
 Month easter_month(int year)
 {
@@ -99,6 +100,8 @@ void show_holy_days()
 	// implement this function
 }
 */
+
+
 int main()
 {
 	//INTRO
@@ -111,8 +114,8 @@ int main()
 	cout << "   | $$__  $$|  $$$$$$|  $$$$$$ | $$| $$    $$| $$    $$| $$   $$   $$| $$$$$$$$| $$    $$  | $$          |_____  $$" << endl;
 	cout << "   | $$  | $$  ____  $$ ____  $$| $$| $$  | $$| $$  | $$| $$ | $$ | $$| $$_____/| $$  | $$  | $$ /$$            | $$" << endl;
 	cout << "   | $$  | $$ /$$$$$$$//$$$$$$$/| $$|  $$$$$$$| $$  | $$| $$ | $$ | $$|  $$$$$$$| $$  | $$  |  $$$$/            | $$" << endl;
-	cout << "   |__/  |__/|_______/|_______/ |__/ \____  $$|__/  |__/|__/ |__/ |__/  _______/|__/  |__/    ___/               |__/ " << endl;
-	cout << "                                     /$$  \ $$                                                                      " << endl;
+	cout << "   |__/  |__/|_______/|_______/ |__/  ____  $$|__/  |__/|__/ |__/ |__/  _______/|__/  |__/    ___/              |__/ " << endl;
+	cout << "                                     /$$    $$                                                                      " << endl;
 	cout << "                                    |  $$$$$$/                                                                      " << endl;
 	cout << "                                      ______/                                  All rights reserved: Jelmar Gerristen" << endl;
 	cout << "                                                                                                    Jonas Westendorp" << endl;
@@ -164,7 +167,7 @@ int main()
 		cin >> month;
 
 		MonthDays = nr_of_days_in_month(year, month, leapyear);
-		cout << "The month " << month << " has " << MonthDays << " days" << endl;
+		cout << "The month " << Month[month -1]<< " has " << MonthDays << " days" << endl << endl;
 
 	}
 
@@ -190,7 +193,7 @@ int main()
 	}
 
 
-
+	main();
 
 	//OPDRACHT!!!
 
