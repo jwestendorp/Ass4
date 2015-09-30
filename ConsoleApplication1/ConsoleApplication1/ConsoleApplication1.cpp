@@ -68,6 +68,93 @@ int nr_of_days_in_month(int year, int month, bool leapyear)
 	}
 }
 
+//variables for easter date
+int holy_year;
+int holyDays;
+int holyDays2;
+int holyDays3;
+bool holyleapyear;
+
+void show_holy_days(int holy_year)
+{
+    int a = holy_year%19;
+    int b = holy_year/100;
+    int c = holy_year%100;
+    int d = b/4;
+    int e = b%4;
+    int f = (b+8) / 25;
+    int g = (b-f+1) / 3;
+    int h = (19 * a + b - d - g + 15)%30;
+    int i = c / 4;
+    int k = c%4;
+    int L = (32 + 2 * e + 2 * i - h - k)%7;
+    int m = (a + 11 * h + 22 * L) / 451;
+    int monthforeal = (h + L - 7 * m + 114) / 31;
+    int dayforeal = ((h + L - 7 * m + 114)%31) + 1;
+    int carnival_day;
+    int carnival_month;
+    int easterday = dayforeal;
+    int eastermonth = monthforeal;
+    cout << "easter is in month " << monthforeal << " and on day " << dayforeal << endl;
+    holyleapyear = is_leap_year(holy_year);
+    holyDays = nr_of_days_in_month(holy_year,monthforeal, holyleapyear);
+    cout << "the month " << monthforeal << " has " << holyDays << " days" << endl;
+    ///////////////////////////////////////////////////////////////////////////////////
+    //                                                                               //
+    //                         carnival part starts here                             //
+    //                                                                               //
+    ///////////////////////////////////////////////////////////////////////////////////
+    // doe - laatste twee maanden en + in dagen
+    // - de dagen
+    // convert de rest naar maanden
+    monthforeal = monthforeal - 2;
+    dayforeal = (dayforeal + (nr_of_days_in_month(holy_year,monthforeal-1, holyleapyear)) + (nr_of_days_in_month(holy_year,monthforeal-2, holyleapyear)))-(7*7);
+    if (dayforeal > (nr_of_days_in_month(holy_year,monthforeal-2, holyleapyear)))
+    {
+        //mod it once
+        dayforeal = dayforeal%(nr_of_days_in_month(holy_year,monthforeal-2, holyleapyear));
+        //add 1 month back
+        monthforeal = monthforeal + 1;
+        
+        if (dayforeal > (nr_of_days_in_month(holy_year,monthforeal-1, holyleapyear)))
+        {
+            //mod it again
+            dayforeal = dayforeal%(nr_of_days_in_month(holy_year,monthforeal-1, holyleapyear));
+            //add 1 month back
+            monthforeal = monthforeal + 1;
+            carnival_day = dayforeal;
+            carnival_month = monthforeal;
+        }
+        if (dayforeal < (nr_of_days_in_month(holy_year,monthforeal-1, holyleapyear)))
+        {
+            carnival_day=dayforeal;
+            carnival_month=monthforeal;
+        }
+        
+    }
+    if (dayforeal < (nr_of_days_in_month(holy_year,monthforeal-2, holyleapyear)))
+    {
+        //we changed nothing
+        carnival_day=dayforeal;
+        carnival_month=monthforeal;
+    }
+    cout << "carnival is in month " << carnival_month << " and on day " << carnival_day << endl;
+    ///////////////////////////////////////////////////////////////////////////////////
+    //                                                                               //
+    //                         good friday part starts here                          //
+    //                                                                               //
+    ///////////////////////////////////////////////////////////////////////////////////
+    cout << "good friday is in month " << eastermonth << " and on day " << (easterday - 2) << endl;
+    ///////////////////////////////////////////////////////////////////////////////////
+    //                                                                               //
+    //                         ascension day part starts here                        //
+    //                                                                               //
+    ///////////////////////////////////////////////////////////////////////////////////
+    cout << "ascension day is in month " <<
+    
+    
+    
+}
 
 /*
 Month easter_month(int year)
